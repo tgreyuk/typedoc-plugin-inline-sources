@@ -1,0 +1,19 @@
+language: node_js
+cache:
+  npm: true
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '13'
+  - '14'
+before_script:
+script:
+  - npm run prepublishOnly
+after_success:
+install:
+  - npm install
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

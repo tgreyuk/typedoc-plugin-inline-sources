@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugin: should inject class accessor source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Class getter source
+
+\`\`\`typescript
+get area() {
+    return this.calcArea();
+}
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject class method source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Class method source
+
+\`\`\`typescript
+calcArea() {
+    return this.height * this.width;
+}
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject class source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Class source
+
+\`\`\`typescript
+export class GoodGreeter {
+    name: string;
+    constructor() {
+        this.name = 'hello';
+    }
+}
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject function source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Function source
+
+\`\`\`typescript
+export function doSomething(x: string | null) {
+    if (x === null) {
+        /* do nothing */
+    }
+    else {
+        // do something
+        console.log('Hello, ' + x.toUpperCase());
+    }
+}
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject interface source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Interface source
+
+\`\`\`typescript
+export interface Person {
+    name: string;
+    age: number;
+}
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject type alias source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "Type Alias source
+
+\`\`\`typescript
+export type ID = number | string;
+\`\`\`
+
+",
+  },
+]
+`;
+
+exports[`Plugin: should inject variable source 1`] = `
+Array [
+  Object {
+    "paramName": "",
+    "tagName": "source",
+    "text": "source tag comment?
+
+\`\`\`typescript
+const message = 'Hello World!'
+\`\`\`
+
+",
+  },
+]
+`;

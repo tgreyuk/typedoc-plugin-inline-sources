@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.1 (2021-11-27)
+
+
+### Bug Fixes
+
+* TypDoc 0.22 compatibility fix ([#1](https://github.com/tgreyuk/typedoc-plugin-inline-sources/issues/1)) ([7fa3fc4](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/7fa3fc4f52ade0851d7eb7ffa8ebe4863dd99242))
+
 ## 1.0.0 (2021-06-01)
-
-

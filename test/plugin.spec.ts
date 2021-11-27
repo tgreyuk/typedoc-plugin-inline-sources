@@ -8,7 +8,7 @@ describe(`Plugin:`, () => {
     app = new Application();
     app.options.addReader(new TSConfigReader());
     app.bootstrap({
-      tsconfig: '../tsconfig.test.json',
+      tsconfig: './tsconfig.test.json',
     });
     project = app.convert() as ProjectReflection;
   });
@@ -38,13 +38,6 @@ describe(`Plugin:`, () => {
       ?.findReflectionByName('Rectangle')
       ?.findReflectionByName('calcArea') as any;
     expect(reflection.signatures[0].comment?.tags).toMatchSnapshot();
-  });
-
-  test(`should inject class accessor source`, async () => {
-    const reflection = project
-      ?.findReflectionByName('Rectangle')
-      ?.findReflectionByName('area') as any;
-    expect(reflection.comment?.tags).toMatchSnapshot();
   });
 
   test(`should inject interface source`, async () => {

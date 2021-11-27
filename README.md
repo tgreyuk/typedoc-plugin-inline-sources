@@ -3,7 +3,7 @@
 A plugin for [TypeDoc](https://github.com/TypeStrong/typedoc) that inlines source code into comments.
 
 [![npm](https://img.shields.io/npm/v/typedoc-plugin-inline-sources.svg)](https://www.npmjs.com/package/typedoc-plugin-inline-sources)
-[![Build Status](https://www.travis-ci.com/tgreyuk/typedoc-plugin-inline-sources.svg?branch=main)](https://travis-ci.com/tgreyuk/typedoc-plugin-inline-sources)
+![CI](https://github.com/tgreyuk/typedoc-plugin-inline-sources/actions/workflows/ci.yml/badge.svg?branch=master)
 
 ## What it does?
 

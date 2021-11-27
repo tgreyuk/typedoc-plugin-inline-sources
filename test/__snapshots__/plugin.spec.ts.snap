@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Plugin: should inject class accessor source 1`] = `
-Array [
-  Object {
-    "paramName": "",
-    "tagName": "source",
-    "text": "Class getter source
-
-\`\`\`typescript
-get area() {
-    return this.calcArea();
-}
-\`\`\`
-
-",
-  },
-]
-`;
-
 exports[`Plugin: should inject class method source 1`] = `
 Array [
   Object {

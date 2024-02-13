@@ -83,17 +83,21 @@ export interface Person {
 `;
 
 exports[`Plugin: should inject type alias source 1`] = `
-Array [
-  Object {
-    "paramName": "",
-    "tagName": "source",
-    "text": "Type Alias source
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "Type Alias source
 
 \`\`\`typescript
 export type ID = number | string;
 \`\`\`
 
 ",
+      },
+    ],
+    "tag": "@source",
   },
 ]
 `;

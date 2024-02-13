@@ -5,6 +5,7 @@
     "lib": ["es2018", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "esModuleInterop": true,
 
     "noImplicitAny": false,
     "noUnusedLocals": false,

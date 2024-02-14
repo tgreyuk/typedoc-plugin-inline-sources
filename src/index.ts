@@ -7,7 +7,6 @@ import {
 } from 'typedoc';
 import * as ts from "typescript"
 
-
 export function load(app: Application) {
   app.converter.on(
     Converter.EVENT_CREATE_DECLARATION,
@@ -46,7 +45,6 @@ function injectSource(context: Context, reflection: Reflection) {
   if (reflection.comment?.blockTags) {
     reflection.comment.blockTags = reflection.comment.blockTags.map((tag) => {
       if (tag.tag === '@source') {
-
         return mapSourceTag(tag, code);
       } else {
         return tag;
@@ -63,7 +61,7 @@ function mapSourceTag(
   return new CommentTag("@source", [
     {
       kind: "code",
-      text: `${tag.content[0].text}\n\`\`\`typescript\n${stripBlockComments(
+      text: `${tag.content[0]?.text || ''}\n\`\`\`typescript\n${stripBlockComments(
         code
       )}\n\`\`\`\n\n`
     }

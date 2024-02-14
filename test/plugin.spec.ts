@@ -1,47 +1,55 @@
-import { Application, ProjectReflection, TSConfigReader } from 'typedoc';
+import { Application, DeclarationReflection, ProjectReflection } from 'typedoc';
+import { load } from "../src"
 
 describe(`Plugin:`, () => {
   let app: Application;
   let project: ProjectReflection;
 
-  beforeAll(() => {
-    app = new Application();
-    app.options.addReader(new TSConfigReader());
-    app.bootstrap({
+  beforeAll(async () => {
+    app = await Application.bootstrap({
       tsconfig: './tsconfig.test.json',
-    });
-    project = app.convert() as ProjectReflection;
+    })
+    load(app)
+    project = await app.convert() as ProjectReflection;
   });
 
   test(`should inject variable source`, async () => {
-    const reflection = project.findReflectionByName('message');
-    expect(reflection?.comment?.tags).toMatchSnapshot();
+    const reflection = project.getChildByName("message")
+    expect(reflection?.comment?.blockTags).toMatchSnapshot();
   });
 
+  test(`should inject variable source for variable list (1)`, async () => {
+    const reflection1 = project.getChildByName("variableListItem1")
+    expect(reflection1?.comment?.blockTags).toMatchSnapshot();
+  })
+
+  test(`should inject variable source for variable list (2)`, async () => {
+    const reflection2 = project.getChildByName("variableListItem2")
+    expect(reflection2?.comment?.blockTags).toMatchSnapshot();
+  })
+
   test(`should inject type alias source`, async () => {
-    const reflection = project.findReflectionByName('ID');
-    expect(reflection?.comment?.tags).toMatchSnapshot();
+    const reflection = project.getChildByName("ID")
+    expect(reflection?.comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject function source`, async () => {
-    const reflection = project.findReflectionByName('doSomething') as any;
-    expect(reflection.signatures[0].comment?.tags).toMatchSnapshot();
+    const reflection = project.getChildByName("doSomething") as DeclarationReflection
+    expect(reflection.signatures![0].comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject class source`, async () => {
-    const reflection = project.findReflectionByName('GoodGreeter') as any;
-    expect(reflection.comment?.tags).toMatchSnapshot();
+    const reflection = project.getChildByName("GoodGreeter")
+    expect(reflection?.comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject class method source`, async () => {
-    const reflection = project
-      ?.findReflectionByName('Rectangle')
-      ?.findReflectionByName('calcArea') as any;
-    expect(reflection.signatures[0].comment?.tags).toMatchSnapshot();
+    const reflection = project.getChildByName("Rectangle")?.getChildByName("calcArea") as DeclarationReflection
+    expect(reflection.signatures![0].comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject interface source`, async () => {
-    const reflection = project?.findReflectionByName('Person') as any;
-    expect(reflection.comment?.tags).toMatchSnapshot();
+    const reflection = project?.getChildByName('Person');
+    expect(reflection?.comment?.blockTags).toMatchSnapshot();
   });
 });

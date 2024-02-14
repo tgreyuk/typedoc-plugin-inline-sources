@@ -6,6 +6,13 @@
 export const message = 'Hello World!';
 
 /**
+ * Comments for two variables defined together
+ *
+ * @source
+ */
+export const variableListItem1 = "1", variableListItem2 = "2";
+
+/**
  * @source Type Alias source
  */
 export type ID = number | string;

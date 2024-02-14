@@ -4,16 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.2](https://github.com/tgreyuk/typedoc-plugin-inline-sources/compare/v1.0.1...v1.0.2) (2024-02-14)
 
-
 ### Bug Fixes
 
-* TypeDoc compatibility fixes. ([49d9d03](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/49d9d0373450059847fb664bdb9744dc155ffccf))
+- TypeDoc compatibility fixes. Thanks [@rjwebb](https://github.com/rjwebb).
 
 ### 1.0.1 (2021-11-27)
 
-
 ### Bug Fixes
 
-* TypDoc 0.22 compatibility fix ([#1](https://github.com/tgreyuk/typedoc-plugin-inline-sources/issues/1)) ([7fa3fc4](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/7fa3fc4f52ade0851d7eb7ffa8ebe4863dd99242))
+- TypDoc 0.22 compatibility fix ([#1](https://github.com/tgreyuk/typedoc-plugin-inline-sources/issues/1)) ([7fa3fc4](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/7fa3fc4f52ade0851d7eb7ffa8ebe4863dd99242))
 
 ## 1.0.0 (2021-06-01)

@@ -8,7 +8,6 @@ describe(`Plugin:`, () => {
   beforeAll(async () => {
     app = await Application.bootstrap({
       tsconfig: './tsconfig.test.json',
-      plugin: ["typedoc-plugin-inline-sources"]
     })
     load(app)
     project = await app.convert() as ProjectReflection;

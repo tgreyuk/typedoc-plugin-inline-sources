@@ -2,7 +2,7 @@
 
 A plugin for [TypeDoc](https://github.com/TypeStrong/typedoc) that inlines source code into documentation.
 
-[![npm](https://img.shields.io/npm/v/typedoc-plugin-inline-sources.svg)](https://www.npmjs.com/package/typedoc-plugin-inline-sources) ![CI](https://github.com/tgreyuk/typedoc-plugin-inline-sources/actions/workflows/ci.yml/badge.svg?branch=main)
+[![npm](https://img.shields.io/npm/v/typedoc-plugin-inline-sources.svg)](https://www.npmjs.com/package/typedoc-plugin-inline-sources) [![Build Status](https://github.com/tgreyuk/typedoc-plugin-inline-sources/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/tgreyuk/typedoc-plugin-inline-sources/actions/workflows/ci.yml)
 
 ## What it does?
 

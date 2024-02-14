@@ -131,3 +131,41 @@ const message = 'Hello World!'
   },
 ]
 `;
+
+exports[`Plugin: should inject variable source for variable list (1) 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+\`\`\`typescript
+const variableListItem1 = "1"
+\`\`\`
+
+",
+      },
+    ],
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Plugin: should inject variable source for variable list (2) 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+\`\`\`typescript
+const variableListItem2 = "2"
+\`\`\`
+
+",
+      },
+    ],
+    "tag": "@source",
+  },
+]
+`;

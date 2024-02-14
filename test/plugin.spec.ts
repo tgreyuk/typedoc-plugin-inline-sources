@@ -18,6 +18,16 @@ describe(`Plugin:`, () => {
     expect(reflection?.comment?.blockTags).toMatchSnapshot();
   });
 
+  test(`should inject variable source for variable list (1)`, async () => {
+    const reflection1 = project.getChildByName("variableListItem1")
+    expect(reflection1?.comment?.blockTags).toMatchSnapshot();
+  })
+
+  test(`should inject variable source for variable list (2)`, async () => {
+    const reflection2 = project.getChildByName("variableListItem2")
+    expect(reflection2?.comment?.blockTags).toMatchSnapshot();
+  })
+
   test(`should inject type alias source`, async () => {
     const reflection = project.getChildByName("ID")
     expect(reflection?.comment?.blockTags).toMatchSnapshot();

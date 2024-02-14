@@ -1,4 +1,4 @@
-import { Application, ProjectReflection } from 'typedoc';
+import { Application, DeclarationReflection, ProjectReflection } from 'typedoc';
 import { load } from "../src"
 
 describe(`Plugin:`, () => {
@@ -25,8 +25,8 @@ describe(`Plugin:`, () => {
   });
 
   test(`should inject function source`, async () => {
-    const reflection = project.getChildByName("doSomething")
-    expect(reflection?.comment?.blockTags).toMatchSnapshot();
+    const reflection = project.getChildByName("doSomething") as DeclarationReflection
+    expect(reflection.signatures![0].comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject class source`, async () => {
@@ -35,8 +35,8 @@ describe(`Plugin:`, () => {
   });
 
   test(`should inject class method source`, async () => {
-    const reflection = project.getChildByName("Rectangle")?.getChildByName("calcArea")
-    expect(reflection?.comment?.blockTags).toMatchSnapshot();
+    const reflection = project.getChildByName("Rectangle")?.getChildByName("calcArea") as DeclarationReflection
+    expect(reflection.signatures![0].comment?.blockTags).toMatchSnapshot();
   });
 
   test(`should inject interface source`, async () => {

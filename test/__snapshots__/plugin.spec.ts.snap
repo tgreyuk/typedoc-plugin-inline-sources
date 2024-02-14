@@ -1,19 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Plugin: should inject class method source 1`] = `
-Array [
-  Object {
-    "paramName": "",
-    "tagName": "source",
-    "text": "Class method source
-
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "Class method source
 \`\`\`typescript
 calcArea() {
     return this.height * this.width;
-}
+  }
 \`\`\`
 
 ",
+      },
+    ],
+    "tag": "@source",
   },
 ]
 `;
@@ -44,25 +47,27 @@ export class GoodGreeter {
 `;
 
 exports[`Plugin: should inject function source 1`] = `
-Array [
-  Object {
-    "paramName": "",
-    "tagName": "source",
-    "text": "Function source
-
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "Function source
 \`\`\`typescript
 export function doSomething(x: string | null) {
-    if (x === null) {
-        /* do nothing */
-    }
-    else {
-        // do something
-        console.log('Hello, ' + x.toUpperCase());
-    }
+  if (x === null) {
+    /* do nothing */
+  } else {
+    // do something
+    console.log('Hello, ' + x.toUpperCase());
+  }
 }
 \`\`\`
 
 ",
+      },
+    ],
+    "tag": "@source",
   },
 ]
 `;

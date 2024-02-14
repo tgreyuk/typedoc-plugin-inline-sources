@@ -28,7 +28,7 @@ function injectSource(context: Context, reflection: Reflection) {
   if(reflection.isProject()) return
 
   // get code from the reflection
-  const sym = context.project.getSymbolFromReflection(reflection)
+  const sym = reflection.variant == "signature" ? context.project.getSymbolFromReflection(reflection.parent!) : context.project.getSymbolFromReflection(reflection)
   if(!sym) return
 
   const valueDeclaration = (sym.declarations || [])[0]
@@ -38,9 +38,9 @@ function injectSource(context: Context, reflection: Reflection) {
   if(valueDeclaration.kind == ts.SyntaxKind.VariableDeclaration) {
     // the VariableDeclaration does not include the `const` keyword because this belongs to
     // the VariableDeclarationList
-    code = `const ${valueDeclaration.getText()}`
+    code = `const${valueDeclaration.getFullText()}`
   } else {
-    code = valueDeclaration.getText()
+    code = valueDeclaration.getFullText()
   }
 
   if (reflection.comment?.blockTags) {

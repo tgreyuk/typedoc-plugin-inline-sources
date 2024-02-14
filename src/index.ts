@@ -4,8 +4,9 @@ import {
   Context,
   Converter,
   Reflection,
-  ReflectionKind,
 } from 'typedoc';
+import * as ts from "typescript"
+
 
 export function load(app: Application) {
   app.converter.on(
@@ -26,33 +27,27 @@ function injectSource(context: Context, reflection: Reflection) {
   // ignore project declaration
   if(reflection.isProject()) return
 
+  // get code from the reflection
+  const sym = context.project.getSymbolFromReflection(reflection)
+  if(!sym) return
+
+  const valueDeclaration = (sym.declarations || [])[0]
+  if(!valueDeclaration) return
+
+  let code: string
+  if(valueDeclaration.kind == ts.SyntaxKind.VariableDeclaration) {
+    // the VariableDeclaration does not include the `const` keyword because this belongs to
+    // the VariableDeclarationList
+    code = `const ${valueDeclaration.getText()}`
+  } else {
+    code = valueDeclaration.getText()
+  }
 
   if (reflection.comment?.blockTags) {
     reflection.comment.blockTags = reflection.comment.blockTags.map((tag) => {
       if (tag.tag === '@source') {
 
-        console.log(ReflectionKind[reflection.kind])
-        console.log(reflection.getFullName())
-
-        const sym = context.project.getSymbolFromReflection(reflection)
-
-        // console.log(sym?.valueDeclaration)
-        const vd = sym?.valueDeclaration
-        console.log(vd?.getText())
-        // let code: string | undefined = undefined
-        // if(reflection.isDeclaration()) {
-        //   const parent = sym?.valueDeclaration?.parent
-        //   if(!parent) return
-        //   code = parent.getText()
-        // } else {
-          // code = sym?.valueDeclaration?.getText()
-        // }
-
-
-        const code = ""
-
-        const newTag = mapSourceTag(tag, code);
-        return newTag
+        return mapSourceTag(tag, code);
       } else {
         return tag;
       }

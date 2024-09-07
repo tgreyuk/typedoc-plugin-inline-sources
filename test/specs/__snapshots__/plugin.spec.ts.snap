@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Options 1: should inject class source 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export class SomeClass {
+  /**
+   * Some prop comments
+   */
+  someProp: string;
+
+  // Class method source
+  someMethod() {
+    return 'hello';
+  }
+}
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject function source 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export function someFunction(x: number, y: number) {
+  return x + y;
+}
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject interface source 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export interface SomeInterface {
+  /**
+   * Comments for prop1
+   */
+  prop1: string;
+
+  // Comments for prop2
+  prop2: number;
+}
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject type alias source 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export type SomeType = number;
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject variable source 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "text",
+        "text": "Some source comments
+
+Some more source comments",
+      },
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export const someVariable = /*ok*/ 'hello'; // someVariable comment;
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject variable source for variable list (1) 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export const multipleVariable1 = 'hello-1',
+  multipleVariable2 = 'hello-2';
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;
+
+exports[`Options 1: should inject variable source for variable list (2) 1`] = `
+[
+  CommentTag {
+    "content": [
+      {
+        "kind": "code",
+        "text": "
+
+\`\`\`ts
+export const multipleVariable1 = 'hello-1',
+  multipleVariable2 = 'hello-2';
+\`\`\`
+
+",
+      },
+    ],
+    "skipRendering": false,
+    "tag": "@source",
+  },
+]
+`;

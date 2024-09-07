@@ -1,0 +1,10 @@
+{
+  "entryPoints": ["./stubs/stubs.ts"],
+  "tsconfig": "../tsconfig.test.json",
+  "out": "./docs/options-1",
+  "readme": "none",
+  "navigation": {
+    "includeGroups": true
+  },
+  "plugin": ["../dist"]
+}

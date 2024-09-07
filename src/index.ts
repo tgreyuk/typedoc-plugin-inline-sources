@@ -1,75 +1,62 @@
 import {
   Application,
-  CommentTag,
   Context,
   Converter,
-  Reflection,
+  DeclarationReflection,
+  ReflectionKind,
+  SignatureReflection,
 } from 'typedoc';
-import * as ts from "typescript"
+import ts from 'typescript';
+import plugin from './plugin';
 
 export function load(app: Application) {
   app.converter.on(
     Converter.EVENT_CREATE_DECLARATION,
-    (context: Context, reflection: Reflection) => {
-      injectSource(context, reflection);
-    }
+    (context: Context, reflection: DeclarationReflection) => {
+      if (shouldParseDeclaration(context, reflection)) {
+        plugin(context, reflection);
+      }
+    },
   );
   app.converter.on(
     Converter.EVENT_CREATE_SIGNATURE,
-    (context: Context, reflection: Reflection) => {
-      injectSource(context, reflection);
-    }
+    (
+      context: Context,
+      reflection: SignatureReflection,
+      sig?: ts.SignatureDeclaration,
+    ) => {
+      if (shouldParseSignature(context, reflection)) {
+        plugin(context, reflection, sig);
+      }
+    },
   );
 }
 
-function injectSource(context: Context, reflection: Reflection) {
-  // ignore project declaration
-  if(reflection.isProject()) return
-
-  // get code from the reflection
-  const sym = reflection.variant == "signature" ? context.project.getSymbolFromReflection(reflection.parent!) : context.project.getSymbolFromReflection(reflection)
-  if(!sym) return
-
-  const valueDeclaration = (sym.declarations || [])[0]
-  if(!valueDeclaration) return
-
-  let code: string
-  if(valueDeclaration.kind == ts.SyntaxKind.VariableDeclaration) {
-    // the VariableDeclaration does not include the `const` keyword because this belongs to
-    // the VariableDeclarationList
-    code = `const${valueDeclaration.getFullText()}`
-  } else {
-    code = valueDeclaration.getFullText()
-  }
-
-  if (reflection.comment?.blockTags) {
-    reflection.comment.blockTags = reflection.comment.blockTags.map((tag) => {
-      if (tag.tag === '@source') {
-        return mapSourceTag(tag, code);
-      } else {
-        return tag;
-      }
-    });
-  }
-}
-
-function mapSourceTag(
-  tag: CommentTag,
-  code: string
+function shouldParseDeclaration(
+  context: Context,
+  reflection: DeclarationReflection,
 ) {
-
-  return new CommentTag("@source", [
-    {
-      kind: "code",
-      text: `${tag.content[0]?.text || ''}\n\`\`\`typescript\n${stripBlockComments(
-        code
-      )}\n\`\`\`\n\n`
-    }
-  ])
+  const ALLOWED_KINDS = [
+    ReflectionKind.Enum,
+    ReflectionKind.Variable,
+    ReflectionKind.Class,
+    ReflectionKind.Interface,
+    ReflectionKind.TypeAlias,
+  ];
+  const sym = context.project.getSymbolFromReflection(reflection);
+  if (ALLOWED_KINDS.includes(reflection.kind)) {
+    return true;
+  }
+  if (sym?.valueDeclaration?.kind !== ts.SyntaxKind.FunctionDeclaration) {
+    return true;
+  }
+  return (sym?.declarations?.length ?? 0) > 1;
 }
 
-function stripBlockComments(code: string) {
-  return code
-    .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/, '$1')
-    .replace(/^\s+|\s+$/g, '');
+function shouldParseSignature(
+  context: Context,
+  reflection: SignatureReflection,
+) {
+  const sym = context.project.getSymbolFromReflection(reflection?.parent);
+  return sym?.valueDeclaration?.kind === ts.SyntaxKind.FunctionDeclaration;
 }

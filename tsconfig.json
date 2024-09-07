@@ -4,14 +4,14 @@
     "declaration": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": ["es2018", "dom"],
+    "lib": ["es2023", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "removeComments": true,
     "strictNullChecks": true,
-    "target": "es2018"
+    "target": "es2023"
   },
   "exclude": ["./dist", "./test", "**/*.spec.ts"]
 }

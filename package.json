@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-inline-sources",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A plugin for TypeDoc that inlines source code into documentation.",
   "main": "dist/index.js",
   "files": [

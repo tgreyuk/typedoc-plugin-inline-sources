@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/tgreyuk/typedoc-plugin-inline-sources/compare/v1.0.2...v1.0.3) (2024-09-11)
+
+
+### Bug Fixes
+
+* include typedoc 0.26 in peerDependencies range ([9ef5a3e](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/9ef5a3ef3d12483cbbca4a713704a816354bd936))
+
 ### [1.0.2](https://github.com/tgreyuk/typedoc-plugin-inline-sources/compare/v1.0.1...v1.0.2) (2024-02-14)
 
 ### Bug Fixes

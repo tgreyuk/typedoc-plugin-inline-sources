@@ -1,12 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Options 1: should inject class source 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+exports[`Options 1: should compile 1`] = `
+"# typedoc-plugin-inline-sources
+
+## Enumerations
+
+### SomeEnum
+
+Enum
+
+#### Source
+
+\`\`\`ts
+export enum SomeEnum {
+  /**
+   * Comments for prop
+   */
+  Item1 = 'item1',
+}
+\`\`\`
+
+#### Enumeration Members
+
+##### Item1
+
+> **Item1**: \`"item1"\`
+
+Comments for prop
+
+## Classes
+
+### SomeClass
+
+Class
+
+#### Source
 
 \`\`\`ts
 export class SomeClass {
@@ -22,45 +50,41 @@ export class SomeClass {
 }
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+#### Constructors
 
-exports[`Options 1: should inject function source 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+##### new SomeClass()
 
-\`\`\`ts
-export function someFunction(x: number, y: number) {
-  return x + y;
-}
-\`\`\`
+> **new SomeClass**(): [\`SomeClass\`](README.md#someclass)
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+###### Returns
 
-exports[`Options 1: should inject interface source 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+[\`SomeClass\`](README.md#someclass)
+
+#### Properties
+
+##### someProp
+
+> **someProp**: \`string\`
+
+Some prop comments
+
+#### Methods
+
+##### someMethod()
+
+> **someMethod**(): \`string\`
+
+###### Returns
+
+\`string\`
+
+## Interfaces
+
+### SomeInterface
+
+Interface
+
+#### Source
 
 \`\`\`ts
 export interface SomeInterface {
@@ -74,103 +98,278 @@ export interface SomeInterface {
 }
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+#### Properties
 
-exports[`Options 1: should inject type alias source 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+##### prop1
+
+> **prop1**: \`string\`
+
+Comments for prop1
+
+##### prop2
+
+> **prop2**: \`number\`
+
+## Type Aliases
+
+### SomeType
+
+> **SomeType**: \`number\`
+
+Type alias
+
+#### Source
 
 \`\`\`ts
 export type SomeType = number;
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+## Variables
 
-exports[`Options 1: should inject variable source 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "text",
-        "text": "Some source comments
+### multipleVariable1
 
-Some more source comments",
-      },
-      {
-        "kind": "code",
-        "text": "
+> \`const\` **multipleVariable1**: \`"hello-1"\` = \`'hello-1'\`
+
+Variable list
+
+#### Source
+
+\`\`\`ts
+export const multipleVariable1 = 'hello-1',
+  multipleVariable2 = 'hello-2';
+\`\`\`
+
+***
+
+### multipleVariable2
+
+> \`const\` **multipleVariable2**: \`"hello-2"\` = \`'hello-2'\`
+
+Variable list
+
+#### Source
+
+\`\`\`ts
+export const multipleVariable1 = 'hello-1',
+  multipleVariable2 = 'hello-2';
+\`\`\`
+
+***
+
+### someLet
+
+> **someLet**: \`string\` = \`'hello'\`
+
+#### Source
+
+\`\`\`ts
+export let someLet = 'hello';
+\`\`\`
+
+***
+
+### someVariable
+
+> \`const\` **someVariable**: \`"hello"\` = \`'hello'\`
+
+Variable
+
+#### Source
+
+Some source comments
+
+Some more source comments
 
 \`\`\`ts
 export const someVariable = /*ok*/ 'hello'; // someVariable comment;
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+## Functions
 
-exports[`Options 1: should inject variable source for variable list (1) 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+### combineFunction()
+
+Combine function main
+
+#### Source
 
 \`\`\`ts
-export const multipleVariable1 = 'hello-1',
-  multipleVariable2 = 'hello-2';
+export function combineFunction(
+  a: string | number,
+  b: string | number,
+): string | number {
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a + b; // Concatenate strings
+  } else if (typeof a === 'number' && typeof b === 'number') {
+    return a + b; // Sum numbers
+  }
+  throw new Error(
+    'Invalid arguments. Both arguments must be of the same type.',
+  );
+}
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
-`;
+#### Call Signature
 
-exports[`Options 1: should inject variable source for variable list (2) 1`] = `
-[
-  CommentTag {
-    "content": [
-      {
-        "kind": "code",
-        "text": "
+> **combineFunction**(\`a\`, \`b\`): \`string\`
+
+Combine function overload 1
+
+##### Parameters
+
+###### a
+
+\`string\`
+
+###### b
+
+\`string\`
+
+##### Returns
+
+\`string\`
+
+##### Source
 
 \`\`\`ts
-export const multipleVariable1 = 'hello-1',
-  multipleVariable2 = 'hello-2';
+export function combineFunction(
+  a: string | number,
+  b: string | number,
+): string | number {
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a + b; // Concatenate strings
+  } else if (typeof a === 'number' && typeof b === 'number') {
+    return a + b; // Sum numbers
+  }
+  throw new Error(
+    'Invalid arguments. Both arguments must be of the same type.',
+  );
+}
 \`\`\`
 
-",
-      },
-    ],
-    "skipRendering": false,
-    "tag": "@source",
-  },
-]
+##### Source
+
+\`\`\`ts
+export function combineFunction(a: string, b: string): string;
+\`\`\`
+
+#### Call Signature
+
+> **combineFunction**(\`a\`, \`b\`): \`number\`
+
+Combine function overload 2
+
+##### Parameters
+
+###### a
+
+\`number\`
+
+###### b
+
+\`number\`
+
+##### Returns
+
+\`number\`
+
+##### Source
+
+\`\`\`ts
+export function combineFunction(
+  a: string | number,
+  b: string | number,
+): string | number {
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a + b; // Concatenate strings
+  } else if (typeof a === 'number' && typeof b === 'number') {
+    return a + b; // Sum numbers
+  }
+  throw new Error(
+    'Invalid arguments. Both arguments must be of the same type.',
+  );
+}
+\`\`\`
+
+##### Source
+
+\`\`\`ts
+export function combineFunction(a: number, b: number): number;
+\`\`\`
+
+***
+
+### greet()
+
+> **greet**(): \`void\`
+
+Logs a greeting message to the console.
+
+#### Returns
+
+\`void\`
+
+#### Source
+
+Optional source comments
+
+\`\`\`ts
+export function greet(): void {
+  console.log('Hello, welcome to TypeScript!');
+}
+\`\`\`
+
+***
+
+### someConstFunction()
+
+> **someConstFunction**(\`x\`): \`string\`
+
+Const function
+
+#### Parameters
+
+##### x
+
+\`string\`
+
+#### Returns
+
+\`string\`
+
+#### Source
+
+\`\`\`ts
+export const someConstFunction = (x: string) => x;
+\`\`\`
+
+***
+
+### someFunction()
+
+> **someFunction**(\`x\`, \`y\`): \`number\`
+
+Function
+
+#### Parameters
+
+##### x
+
+\`number\`
+
+##### y
+
+\`number\`
+
+#### Returns
+
+\`number\`
+
+#### Source
+
+\`\`\`ts
+export function someFunction(x: number, y: number) {
+  return x + y;
+}
+\`\`\`
+"
 `;

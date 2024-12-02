@@ -1,15 +1,9 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "experimentalDecorators": true,
-    "lib": ["es2021", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "noImplicitAny": false,
     "noUnusedLocals": false,
     "strictNullChecks": false,
-    "target": "es2021"
+    "resolveJsonModule": true
   },
   "include": ["./test/**/*.ts"],
   "exclude": ["./src"]

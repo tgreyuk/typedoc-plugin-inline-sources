@@ -7,7 +7,7 @@ import {
   SignatureReflection,
 } from 'typedoc';
 import ts from 'typescript';
-import plugin from './plugin';
+import plugin from './plugin.js';
 
 export function load(app: Application) {
   app.converter.on(

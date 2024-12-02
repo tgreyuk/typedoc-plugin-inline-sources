@@ -1,6 +1,6 @@
 import { CommentDisplayPart, CommentTag, Context, Reflection } from 'typedoc';
 import ts from 'typescript';
-import { TAG_NAME } from './constants';
+import { TAG_NAME } from './constants.js';
 
 export function parseTag(tag: CommentTag, valueDeclaration: ts.Declaration) {
   const commentParts: CommentDisplayPart[] = [];

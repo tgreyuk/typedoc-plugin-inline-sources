@@ -3,15 +3,13 @@
     "outDir": "./dist",
     "declaration": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true,
+    "module": "Node16",
     "lib": ["es2023", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "es2022",
     "noImplicitAny": true,
     "noUnusedLocals": false,
     "removeComments": true,
-    "strictNullChecks": true,
-    "target": "es2023"
+    "strictNullChecks": true
   },
   "exclude": ["./dist", "./test", "**/*.spec.ts"]
 }

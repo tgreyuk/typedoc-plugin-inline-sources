@@ -1,13 +1,9 @@
 import { spawn } from 'child_process';
 import { consola } from 'consola';
-import * as fs from 'fs-extra';
 
 const timeStart = new Date().getTime();
 
 consola.start(`Building test fixtures...`);
-
-// remove output dir
-fs.removeSync(`./test/docs`);
 
 const fixtures = ['typedoc.json'];
 

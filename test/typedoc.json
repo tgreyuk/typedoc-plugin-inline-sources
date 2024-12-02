@@ -6,5 +6,8 @@
   "navigation": {
     "includeGroups": true
   },
-  "plugin": ["../dist"]
+  "outputFileStrategy": "modules",
+  "hidePageHeader": true,
+  "disableSources": true,
+  "plugin": ["typedoc-plugin-markdown", "../dist/index.js"]
 }

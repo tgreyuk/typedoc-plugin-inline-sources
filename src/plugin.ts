@@ -1,6 +1,6 @@
 import { Context, Reflection } from 'typedoc';
 import ts from 'typescript';
-import { getValueDeclaration, parseTag } from './helpers';
+import { getValueDeclaration, parseTag } from './helpers.js';
 
 export default (
   context: Context,

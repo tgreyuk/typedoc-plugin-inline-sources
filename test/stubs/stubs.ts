@@ -92,6 +92,23 @@ export class SomeClass {
   }
 }
 
+export class SomeClassMethodWithMemberSources {
+  /**
+   * Some prop comments
+   *
+   * @source
+   */
+  someProp: string;
+
+  /**
+   *
+   * @source
+   */
+  someMethod() {
+    return 'hello';
+  }
+}
+
 /**
  * Interface
  *

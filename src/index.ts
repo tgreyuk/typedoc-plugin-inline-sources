@@ -58,5 +58,8 @@ function shouldParseSignature(
   reflection: SignatureReflection,
 ) {
   const sym = context.project.getSymbolFromReflection(reflection?.parent);
-  return sym?.valueDeclaration?.kind === ts.SyntaxKind.FunctionDeclaration;
+  return (
+    sym?.valueDeclaration?.kind === ts.SyntaxKind.FunctionDeclaration ||
+    sym?.valueDeclaration?.kind === ts.SyntaxKind.MethodDeclaration
+  );
 }

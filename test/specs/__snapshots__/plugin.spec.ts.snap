@@ -78,6 +78,52 @@ Some prop comments
 
 \`string\`
 
+***
+
+### SomeClassMethodWithMemberSources
+
+#### Constructors
+
+##### new SomeClassMethodWithMemberSources()
+
+> **new SomeClassMethodWithMemberSources**(): [\`SomeClassMethodWithMemberSources\`](README.md#someclassmethodwithmembersources)
+
+###### Returns
+
+[\`SomeClassMethodWithMemberSources\`](README.md#someclassmethodwithmembersources)
+
+#### Properties
+
+##### someProp
+
+> **someProp**: \`string\`
+
+Some prop comments
+
+###### Source
+
+\`\`\`ts
+  someProp: string;
+\`\`\`
+
+#### Methods
+
+##### someMethod()
+
+> **someMethod**(): \`string\`
+
+###### Returns
+
+\`string\`
+
+###### Source
+
+\`\`\`ts
+  someMethod() {
+    return 'hello';
+  }
+\`\`\`
+
 ## Interfaces
 
 ### SomeInterface

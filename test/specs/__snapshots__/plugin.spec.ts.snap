@@ -52,13 +52,13 @@ export class SomeClass {
 
 #### Constructors
 
-##### new SomeClass()
+##### Constructor
 
-> **new SomeClass**(): [\`SomeClass\`](README.md#someclass)
+> **new SomeClass**(): [\`SomeClass\`](#someclass)
 
 ###### Returns
 
-[\`SomeClass\`](README.md#someclass)
+[\`SomeClass\`](#someclass)
 
 #### Properties
 
@@ -84,13 +84,13 @@ Some prop comments
 
 #### Constructors
 
-##### new SomeClassMethodWithMemberSources()
+##### Constructor
 
-> **new SomeClassMethodWithMemberSources**(): [\`SomeClassMethodWithMemberSources\`](README.md#someclassmethodwithmembersources)
+> **new SomeClassMethodWithMemberSources**(): [\`SomeClassMethodWithMemberSources\`](#someclassmethodwithmembersources)
 
 ###### Returns
 
-[\`SomeClassMethodWithMemberSources\`](README.md#someclassmethodwithmembersources)
+[\`SomeClassMethodWithMemberSources\`](#someclassmethodwithmembersources)
 
 #### Properties
 
@@ -160,7 +160,7 @@ Comments for prop1
 
 ### SomeType
 
-> **SomeType**: \`number\`
+> **SomeType** = \`number\`
 
 Type alias
 

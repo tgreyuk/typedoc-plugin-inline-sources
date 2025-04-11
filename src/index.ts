@@ -43,7 +43,7 @@ function shouldParseDeclaration(
     ReflectionKind.Interface,
     ReflectionKind.TypeAlias,
   ];
-  const sym = context.project.getSymbolFromReflection(reflection);
+  const sym = context.getSymbolFromReflection(reflection);
   if (ALLOWED_KINDS.includes(reflection.kind)) {
     return true;
   }
@@ -57,7 +57,7 @@ function shouldParseSignature(
   context: Context,
   reflection: SignatureReflection,
 ) {
-  const sym = context.project.getSymbolFromReflection(reflection?.parent);
+  const sym = context.getSymbolFromReflection(reflection?.parent);
   return (
     sym?.valueDeclaration?.kind === ts.SyntaxKind.FunctionDeclaration ||
     sym?.valueDeclaration?.kind === ts.SyntaxKind.MethodDeclaration

@@ -24,8 +24,8 @@ export function getValueDeclaration(
 ) {
   // get symbol
   const sym = sig
-    ? context.project.getSymbolFromReflection(reflection.parent!)
-    : context.project.getSymbolFromReflection(reflection);
+    ? context.getSymbolFromReflection(reflection.parent!)
+    : context.getSymbolFromReflection(reflection);
 
   if (!sym) return;
 

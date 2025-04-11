@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/tgreyuk/typedoc-plugin-inline-sources/compare/v1.2.0...v1.3.0) (2025-04-11)
+
+### Features
+
+- support TypeDoc 0.28 ([db4286f](https://github.com/tgreyuk/typedoc-plugin-inline-sources/commit/db4286fbc94c1948d1f319bbed2c9532b94e4460))
+
 ## [1.2.1](https://github.com/tgreyuk/typedoc-plugin-inline-sources/compare/v1.1.0...v1.2.0) (2025-02-23)
 
 ### Bug Fixes

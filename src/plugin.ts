@@ -1,13 +1,13 @@
 import { Context, Reflection } from 'typedoc';
 import ts from 'typescript';
 import { getValueDeclaration, parseTag } from './helpers.js';
+import { TAG_NAME } from './constants.js';
 
 export default (
   context: Context,
   reflection: Reflection,
   sig?: ts.SignatureDeclaration,
 ) => {
-  const TAG_NAME = '@source';
 
   // ignore projects
   if (reflection.isProject()) return;

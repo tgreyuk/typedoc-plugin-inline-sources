@@ -76,6 +76,8 @@ Block tags are output as "title case" headings in the final output. If you would
 
 ### Handling "unknown block tag" warning
 
+If you specify custom tags for TypeDoc via a `tsdoc.json` file or through TypeDoc's
+`blockTags` options, then you will need to add `@source` to the block tags list.
 When using the tag, TypeDoc (since 0.26) will generate the following warning:
 
 ```shell

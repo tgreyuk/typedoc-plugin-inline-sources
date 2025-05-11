@@ -8,8 +8,17 @@ import {
 } from 'typedoc';
 import ts from 'typescript';
 import plugin from './plugin.js';
+import { TAG_NAME } from './constants.js';
 
 export function load(app: Application) {
+  app.on(Application.EVENT_BOOTSTRAP_END, () => {
+    if (!app.options.isSet('blockTags')) {
+      app.options.setValue('blockTags', [
+        ...app.options.getValue('blockTags'),
+        TAG_NAME
+      ]);
+    }
+  });
   app.converter.on(
     Converter.EVENT_CREATE_DECLARATION,
     (context: Context, reflection: DeclarationReflection) => {
